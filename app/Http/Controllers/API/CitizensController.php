@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Citizen;
 use Illuminate\Http\Request;
 
 class CitizensController extends Controller
@@ -14,7 +15,8 @@ class CitizensController extends Controller
      */
     public function index()
     {
-        //
+        $citizens = Citizen::all();
+        return response()->json($citizens);
     }
 
     /**
