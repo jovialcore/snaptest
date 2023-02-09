@@ -12,15 +12,14 @@ class SearchController extends Controller
         $citizens =  Citizen::all();
         if ($r->item) {
             $citizens = Citizen::query()
-                ->where('full_name', 'LIKE', '%'. $r->item .'%')
-                ->orWhere('phone', 'LIKE', '%' . $r->item .'%')
-                ->orWhere('gender', 'LIKE', '%' . $r->item .'%')
-                ->orWhere('address', 'LIKE', '%' . $r->item .'%')
-              
-                ->get();
-               
+                ->where('full_name', 'LIKE', '%' . $r->item . '%')
+                ->orWhere('phone', 'LIKE', '%' . $r->item . '%')
+                ->orWhere('gender', 'LIKE', '%' . $r->item . '%')
+                ->orWhere('address', 'LIKE', '%' . $r->item . '%')
+
+                ->orderBy('id', 'DESC')->paginate(10);
         }
-       
+
         return view('citizens.index', compact('citizens'));
     }
 }
