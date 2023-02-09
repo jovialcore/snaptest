@@ -43,10 +43,10 @@ class AuthenticateController extends Controller
 
     public function login(Request $r)
     {
-      
+
         if (Auth::attempt(['email' => $r->email, 'password' => $r->password])) {
-            $user =     $user = User::where('email', $r->email)->first();
-          
+            $user = $user = User::where('email', $r->email)->first();
+         
             $success['token'] =  $user->createToken('NPC_APP')->plainTextToken;
             $success['name'] =  $user->name;
 

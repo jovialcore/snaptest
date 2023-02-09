@@ -8,3 +8,5 @@ I have added a database seeder.
 php artisan migrate
 then
 php artisan db:seed
+
+Aside the demo, You will have to register/login to be able to add other citizens info 

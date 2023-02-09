@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Citizen;
 use Illuminate\Http\Request;
 
+
+use App\Http\Resources\CitizenResource;
+
 class CitizensController extends Controller
 {
     /**
@@ -16,7 +19,7 @@ class CitizensController extends Controller
     public function index()
     {
         $citizens = Citizen::all();
-        return response()->json($citizens);
+        return response()->json([CitizenResource::collection($citizens), 'Citizens Data recieved successfully']);
     }
 
     /**
