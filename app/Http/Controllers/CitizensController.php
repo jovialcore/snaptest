@@ -14,7 +14,10 @@ class CitizensController extends Controller
      */
     public function index()
     {
-        return view('citizens.index');
+
+        $citizens =  Citizen::with('Ward')->get();
+   
+        return view('citizens.index', compact('citizens'));
     }
 
     /**
@@ -54,8 +57,6 @@ class CitizensController extends Controller
             'ward_id' => $r->ward_id
 
         ]);
-
-        // dd($citizen);
 
 
         return redirect()->route('citizens.create')->with('success', 'Citizens Registration successfull');

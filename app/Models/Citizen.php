@@ -10,4 +10,12 @@ class Citizen extends Model
     use HasFactory;
 
     protected $fillable = ['full_name', 'phone', 'address', 'ward_id', 'gender'];
+
+
+
+
+    public function Ward()
+    {
+        return $this->belongsTo(Ward::class);
+    }
 }

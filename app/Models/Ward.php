@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ward extends Model
 {
     use HasFactory;
+
+
+
+    public function citizen()
+    {
+        return $this->hasMany(Ward::class, 'ward_id');
+    }
 }
