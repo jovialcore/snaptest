@@ -15,8 +15,8 @@ class CitizensController extends Controller
     public function index()
     {
 
-        $citizens =  Citizen::with('Ward')->get();
-   
+        $citizens =  Citizen::all();
+
         return view('citizens.index', compact('citizens'));
     }
 
@@ -70,7 +70,9 @@ class CitizensController extends Controller
      */
     public function show($id)
     {
-        //
+        $citizen = Citizen::with('Ward')->where('id', $id)->first();
+        // dd($citizen);
+        return view('citizens.show', compact('citizen'));
     }
 
     /**
