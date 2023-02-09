@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('citizens', 'App\Http\Controllers\CitizensController');
+
+
+Route::get('/users/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
