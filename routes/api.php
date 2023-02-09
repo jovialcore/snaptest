@@ -19,7 +19,8 @@ use App\Http\Controllers\API\CitizensController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
+Route::post('/register', [App\Http\Controllers\API\AuthenticateController::class, 'register']);
+Route::post('/login', [App\Http\Controllers\API\AuthenticateController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('citizens', CitizensController::class);
