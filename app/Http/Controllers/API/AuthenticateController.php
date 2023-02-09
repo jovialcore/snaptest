@@ -52,7 +52,7 @@ class AuthenticateController extends Controller
 
             return response()->json([$success, 'User login successfully.']);
         } else {
-            return response()->json(['Unauthorised.', "Invalid username or password"], 422);
+            return response()->json(['Unauthorised.', "Invalid email or password"], 422);
         }
     }
 }

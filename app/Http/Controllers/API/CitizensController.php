@@ -19,7 +19,7 @@ class CitizensController extends Controller
     public function index()
     {
         $citizens = Citizen::all();
-        return response()->json([CitizenResource::collection($citizens), 'Citizens Data recieved successfully']);
+        return response()->json([new CitizenResource($citizens), 'Citizens Returned successfully'],200);
     }
 
     /**
