@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Citizen;
 use Illuminate\Http\Request;
 
 class CitizensController extends Controller
@@ -13,7 +14,7 @@ class CitizensController extends Controller
      */
     public function index()
     {
-        //
+        return view('citizens.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class CitizensController extends Controller
      */
     public function create()
     {
-        //
+        return view('citizens.register');
     }
 
     /**
@@ -32,9 +33,32 @@ class CitizensController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+        // dd($r->all());
+
+        $r->validate([
+            'full_name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'ward_id' => 'required'
+        ]);
+
+        $citizen = new Citizen();
+        $citizen->create([
+            'full_name' => $r->full_name,
+            'address' => $r->address,
+            'phone' => $r->phone,
+            'gender' => $r->gender,
+            'ward_id' => $r->ward_id
+
+        ]);
+
+        // dd($citizen);
+
+
+        return redirect()->route('citizens.create')->with('success', 'Citizens Registration successfull');
     }
 
     /**

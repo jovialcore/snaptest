@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Citizen extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['full_name', 'phone', 'address', 'ward_id', 'gender'];
 }
