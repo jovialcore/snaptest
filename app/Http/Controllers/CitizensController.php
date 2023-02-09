@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SnapTestController extends Controller
+class CitizensController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class SnapTestController extends Controller
      */
     public function index()
     {
-        return view('snaptest');
+        //
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
